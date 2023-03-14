@@ -54,4 +54,12 @@ public class SpringAmqpTest {
 //        rabbitTemplate.setExchange(exchange);
         rabbitTemplate.convertAndSend(exchange,"yellow",message);
     }
+
+    @Test
+    public void testSendMessage2TopicExchange() {
+        String message = "chinajoy is open!";
+        String exchange = "itcast.topic";
+//        rabbitTemplate.setExchange(exchange);
+        rabbitTemplate.convertAndSend(exchange,"china.joy",message);
+    }
 }
