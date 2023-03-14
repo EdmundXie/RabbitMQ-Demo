@@ -20,15 +20,26 @@ public class SpringRabbitListener {
 //        System.out.println("listen to message" + " " + massage);
 //    }
 
-    @RabbitListener(queues = "simple.queue")
-    public void listenWorkQueue(String massage) throws InterruptedException {
-        System.out.println("消费者1 listen to message" + " " + massage+ LocalTime.now());
-        Thread.sleep(20);
+//    @RabbitListener(queues = "simple.queue")
+//    public void listenWorkQueue(String massage) throws InterruptedException {
+//        System.out.println("消费者1 listen to message" + " " + massage+ LocalTime.now());
+//        Thread.sleep(20);
+//    }
+//
+//    @RabbitListener(queues = "simple.queue")
+//    public void listenWorkQueue2(String massage) throws InterruptedException {
+//        System.err.println("消费者2 listen to message" + " " + massage+ LocalTime.now());
+//        Thread.sleep(200);
+//    }
+
+    @RabbitListener(queues = "itcast.queue1")
+    public void listenFanoutQueue1(String massage) throws InterruptedException {
+        System.err.println("消费者1 listen to fanout.queue1" + "【 "+ massage+"】"+ LocalTime.now());
+
     }
 
-    @RabbitListener(queues = "simple.queue")
-    public void listenWorkQueue2(String massage) throws InterruptedException {
-        System.err.println("消费者2 listen to message" + " " + massage+ LocalTime.now());
-        Thread.sleep(200);
+    @RabbitListener(queues = "itcast.queue2")
+    public void listenFanoutQueue2(String massage) throws InterruptedException {
+        System.err.println("消费者2 listen to fanout.queue2" + " " + massage+ LocalTime.now());
     }
 }
